@@ -1,0 +1,16 @@
+<script>
+  window.componenti18n = function(component) {
+    return {
+      properties: {
+        i18n: {
+          type: Object,
+          value: window.i18n && window.i18n.translations && window.i18n.translations[component] ? window.i18n.translations[component][FS.simpleLocale()] || {} : {}
+        }
+      },
+      _i18n: function(key) {
+        if (!window.i18n || !window.i18n.translate) return component + '.' + key;
+        return window.i18n.translate(component, key);
+      }
+    };
+  };
+</script>
